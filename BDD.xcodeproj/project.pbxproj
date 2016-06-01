@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		220FE0181CF8A187008893D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0171CF8A187008893D8 /* AppDelegate.swift */; };
+		220FE01D1CF8A187008893D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220FE01B1CF8A187008893D8 /* Main.storyboard */; };
+		220FE01F1CF8A187008893D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220FE01E1CF8A187008893D8 /* Assets.xcassets */; };
+		220FE0221CF8A187008893D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220FE0201CF8A187008893D8 /* LaunchScreen.storyboard */; };
+		220FE02D1CF8A4A2008893D8 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 220FE02A1CF8A4A2008893D8 /* ProgressHUD.bundle */; };
+		220FE02E1CF8A4A2008893D8 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FE02C1CF8A4A2008893D8 /* ProgressHUD.m */; };
+		220FE0351CF8A4B6008893D8 /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */; };
+		220FE0361CF8A4B6008893D8 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0301CF8A4B6008893D8 /* FormViewController.swift */; };
+		220FE0371CF8A4B6008893D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0311CF8A4B6008893D8 /* MenuViewController.swift */; };
+		220FE0381CF8A4B6008893D8 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0321CF8A4B6008893D8 /* OrderViewController.swift */; };
+		220FE0391CF8A4B6008893D8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0331CF8A4B6008893D8 /* Reachability.swift */; };
+		220FE03A1CF8A4B6008893D8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0341CF8A4B6008893D8 /* WebViewController.swift */; };
+		220FE03D1CF8A708008893D8 /* menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 220FE03C1CF8A708008893D8 /* menu.pdf */; };
+		220FE03F1CF8A941008893D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */; };
+		22FC66231CF8B3E1006CA10E /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC661E1CF8B3E1006CA10E /* FirebaseAnalytics.framework */; };
+		22FC66241CF8B3E1006CA10E /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC661F1CF8B3E1006CA10E /* FirebaseInstanceID.framework */; };
+		22FC66251CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66201CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework */; };
+		22FC66261CF8B3E1006CA10E /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66211CF8B3E1006CA10E /* GoogleSymbolUtilities.framework */; };
+		22FC66271CF8B3E1006CA10E /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66221CF8B3E1006CA10E /* GoogleUtilities.framework */; };
+		22FC66291CF8B417006CA10E /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66281CF8B417006CA10E /* FirebaseDatabase.framework */; };
+		22FC662C1CF8B422006CA10E /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC662A1CF8B422006CA10E /* FirebaseMessaging.framework */; };
+		22FC662D1CF8B422006CA10E /* GoogleIPhoneUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC662B1CF8B422006CA10E /* GoogleIPhoneUtilities.framework */; };
+		22FC66311CF8B610006CA10E /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66301CF8B610006CA10E /* libicucore.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		220FE0141CF8A186008893D8 /* BDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		220FE0171CF8A187008893D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		220FE01C1CF8A187008893D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		220FE01E1CF8A187008893D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		220FE0211CF8A187008893D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		220FE0231CF8A187008893D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		220FE02A1CF8A4A2008893D8 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		220FE02B1CF8A4A2008893D8 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		220FE02C1CF8A4A2008893D8 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
+		220FE0301CF8A4B6008893D8 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		220FE0311CF8A4B6008893D8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		220FE0321CF8A4B6008893D8 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		220FE0331CF8A4B6008893D8 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		220FE0341CF8A4B6008893D8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		220FE03B1CF8A4C8008893D8 /* Den_Delivery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Den_Delivery-Bridging-Header.h"; sourceTree = "<group>"; };
+		220FE03C1CF8A708008893D8 /* menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = menu.pdf; sourceTree = "<group>"; };
+		220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22FC661E1CF8B3E1006CA10E /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		22FC661F1CF8B3E1006CA10E /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		22FC66201CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		22FC66211CF8B3E1006CA10E /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		22FC66221CF8B3E1006CA10E /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		22FC66281CF8B417006CA10E /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		22FC662A1CF8B422006CA10E /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = "<group>"; };
+		22FC662B1CF8B422006CA10E /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
+		22FC662E1CF8B4D4006CA10E /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		22FC662F1CF8B503006CA10E /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		22FC66301CF8B610006CA10E /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		220FE0111CF8A186008893D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22FC66311CF8B610006CA10E /* libicucore.tbd in Frameworks */,
+				22FC66291CF8B417006CA10E /* FirebaseDatabase.framework in Frameworks */,
+				22FC662C1CF8B422006CA10E /* FirebaseMessaging.framework in Frameworks */,
+				22FC66251CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework in Frameworks */,
+				22FC66231CF8B3E1006CA10E /* FirebaseAnalytics.framework in Frameworks */,
+				22FC66261CF8B3E1006CA10E /* GoogleSymbolUtilities.framework in Frameworks */,
+				22FC66271CF8B3E1006CA10E /* GoogleUtilities.framework in Frameworks */,
+				22FC66241CF8B3E1006CA10E /* FirebaseInstanceID.framework in Frameworks */,
+				22FC662D1CF8B422006CA10E /* GoogleIPhoneUtilities.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		220FE00B1CF8A186008893D8 = {
+			isa = PBXGroup;
+			children = (
+				220FE03B1CF8A4C8008893D8 /* Den_Delivery-Bridging-Header.h */,
+				220FE0161CF8A187008893D8 /* Den Delivery */,
+				220FE0151CF8A186008893D8 /* Products */,
+				220FE0291CF8A4A2008893D8 /* ProgressHUD */,
+				2942D4023F99BD2BFAF805D0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		220FE0151CF8A186008893D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				220FE0141CF8A186008893D8 /* BDD.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		220FE0161CF8A187008893D8 /* Den Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				220FE0171CF8A187008893D8 /* AppDelegate.swift */,
+				220FE0321CF8A4B6008893D8 /* OrderViewController.swift */,
+				220FE0301CF8A4B6008893D8 /* FormViewController.swift */,
+				220FE0311CF8A4B6008893D8 /* MenuViewController.swift */,
+				220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */,
+				220FE0341CF8A4B6008893D8 /* WebViewController.swift */,
+				220FE0331CF8A4B6008893D8 /* Reachability.swift */,
+				220FE01B1CF8A187008893D8 /* Main.storyboard */,
+				220FE01E1CF8A187008893D8 /* Assets.xcassets */,
+				220FE0201CF8A187008893D8 /* LaunchScreen.storyboard */,
+				220FE03C1CF8A708008893D8 /* menu.pdf */,
+				220FE0231CF8A187008893D8 /* Info.plist */,
+				220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */,
+			);
+			path = "Den Delivery";
+			sourceTree = "<group>";
+		};
+		220FE0291CF8A4A2008893D8 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				220FE02A1CF8A4A2008893D8 /* ProgressHUD.bundle */,
+				220FE02B1CF8A4A2008893D8 /* ProgressHUD.h */,
+				220FE02C1CF8A4A2008893D8 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		2942D4023F99BD2BFAF805D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22FC66301CF8B610006CA10E /* libicucore.tbd */,
+				22FC662F1CF8B503006CA10E /* module.modulemap */,
+				22FC662E1CF8B4D4006CA10E /* Firebase.h */,
+				22FC662A1CF8B422006CA10E /* FirebaseMessaging.framework */,
+				22FC662B1CF8B422006CA10E /* GoogleIPhoneUtilities.framework */,
+				22FC66281CF8B417006CA10E /* FirebaseDatabase.framework */,
+				22FC661E1CF8B3E1006CA10E /* FirebaseAnalytics.framework */,
+				22FC661F1CF8B3E1006CA10E /* FirebaseInstanceID.framework */,
+				22FC66201CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework */,
+				22FC66211CF8B3E1006CA10E /* GoogleSymbolUtilities.framework */,
+				22FC66221CF8B3E1006CA10E /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		220FE0131CF8A186008893D8 /* BDD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 220FE0261CF8A187008893D8 /* Build configuration list for PBXNativeTarget "BDD" */;
+			buildPhases = (
+				220FE0101CF8A186008893D8 /* Sources */,
+				220FE0111CF8A186008893D8 /* Frameworks */,
+				220FE0121CF8A186008893D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BDD;
+			productName = "Den Delivery";
+			productReference = 220FE0141CF8A186008893D8 /* BDD.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		220FE00C1CF8A186008893D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Bobcat Den Delivery";
+				TargetAttributes = {
+					220FE0131CF8A186008893D8 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = FFUYHJNMAW;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 220FE00F1CF8A186008893D8 /* Build configuration list for PBXProject "BDD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 220FE00B1CF8A186008893D8;
+			productRefGroup = 220FE0151CF8A186008893D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				220FE0131CF8A186008893D8 /* BDD */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		220FE0121CF8A186008893D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				220FE02D1CF8A4A2008893D8 /* ProgressHUD.bundle in Resources */,
+				220FE0221CF8A187008893D8 /* LaunchScreen.storyboard in Resources */,
+				220FE01F1CF8A187008893D8 /* Assets.xcassets in Resources */,
+				220FE01D1CF8A187008893D8 /* Main.storyboard in Resources */,
+				220FE03D1CF8A708008893D8 /* menu.pdf in Resources */,
+				220FE03F1CF8A941008893D8 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		220FE0101CF8A186008893D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				220FE0391CF8A4B6008893D8 /* Reachability.swift in Sources */,
+				220FE02E1CF8A4A2008893D8 /* ProgressHUD.m in Sources */,
+				220FE0371CF8A4B6008893D8 /* MenuViewController.swift in Sources */,
+				220FE0181CF8A187008893D8 /* AppDelegate.swift in Sources */,
+				220FE0361CF8A4B6008893D8 /* FormViewController.swift in Sources */,
+				220FE0351CF8A4B6008893D8 /* FaqViewController.swift in Sources */,
+				220FE0381CF8A4B6008893D8 /* OrderViewController.swift in Sources */,
+				220FE03A1CF8A4B6008893D8 /* WebViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		220FE01B1CF8A187008893D8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				220FE01C1CF8A187008893D8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		220FE0201CF8A187008893D8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				220FE0211CF8A187008893D8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		220FE0241CF8A187008893D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		220FE0251CF8A187008893D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kurt Niiler (FFUYHJNMAW)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		220FE0271CF8A187008893D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Den Delivery/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bdd.Den-Delivery";
+				PRODUCT_NAME = BDD;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Den_Delivery-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		220FE0281CF8A187008893D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "Den Delivery/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bdd.Den-Delivery";
+				PRODUCT_NAME = BDD;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Den_Delivery-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		220FE00F1CF8A186008893D8 /* Build configuration list for PBXProject "BDD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				220FE0241CF8A187008893D8 /* Debug */,
+				220FE0251CF8A187008893D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		220FE0261CF8A187008893D8 /* Build configuration list for PBXNativeTarget "BDD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				220FE0271CF8A187008893D8 /* Debug */,
+				220FE0281CF8A187008893D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 220FE00C1CF8A186008893D8 /* Project object */;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>330650698664-3ii2pir6dqm4o9sm6qbgrns1u75dl4c6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.330650698664-3ii2pir6dqm4o9sm6qbgrns1u75dl4c6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCO_iZgpRuMVAgvVMW-9Z73wkBgcuBC9Zg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>330650698664</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bdd.Den-Delivery</string>
+	<key>PROJECT_ID</key>
+	<string>den-delivery-3bce7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>den-delivery-3bce7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:330650698664:ios:36cc2bc4f196e8bb</string>
+	<key>DATABASE_URL</key>
+	<string>https://den-delivery-3bce7.firebaseio.com</string>
+</dict>
+</plist>

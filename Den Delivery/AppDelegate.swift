@@ -8,6 +8,17 @@
 
 import UIKit
 
+// GLOBALS
+let darkRedColor = UIColor(colorLiteralRed: 0.533, green: 0.063, blue: 0.141, alpha: 1.0) // #881024
+let lightRedColor = UIColor(colorLiteralRed: 0.8, green: 0.094, blue: 0.212, alpha: 1.0) // #CC1836
+
+let placeholderFont = UIFont(name: "Helvetica Neue", size: 13)
+
+// DD open/closed?
+var openForDelivery = false
+
+let firebaseRef = FIRDatabase.database().reference()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Initialize Firebase
+        FIRApp.configure()
+        
+        // Ask user for push notifications
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+        UITabBar.appearance().tintColor = lightRedColor
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         return true
     }
 
@@ -39,6 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    // Push notifications
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // Print message ID.
+        print("Message ID: \(userInfo["gcm.message_id"]!)")
+        
+        // Print full message.
+        print("%@", userInfo)
     }
 
 
