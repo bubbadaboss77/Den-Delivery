@@ -21,8 +21,15 @@
 		220FE03A1CF8A4B6008893D8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0341CF8A4B6008893D8 /* WebViewController.swift */; };
 		220FE03D1CF8A708008893D8 /* menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 220FE03C1CF8A708008893D8 /* menu.pdf */; };
 		220FE03F1CF8A941008893D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */; };
+		22FC66231CF8B3E1006CA10E /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC661E1CF8B3E1006CA10E /* FirebaseAnalytics.framework */; };
+		22FC66241CF8B3E1006CA10E /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC661F1CF8B3E1006CA10E /* FirebaseInstanceID.framework */; };
+		22FC66251CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66201CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework */; };
+		22FC66261CF8B3E1006CA10E /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66211CF8B3E1006CA10E /* GoogleSymbolUtilities.framework */; };
+		22FC66271CF8B3E1006CA10E /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66221CF8B3E1006CA10E /* GoogleUtilities.framework */; };
+		22FC66291CF8B417006CA10E /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66281CF8B417006CA10E /* FirebaseDatabase.framework */; };
+		22FC662C1CF8B422006CA10E /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC662A1CF8B422006CA10E /* FirebaseMessaging.framework */; };
+		22FC662D1CF8B422006CA10E /* GoogleIPhoneUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC662B1CF8B422006CA10E /* GoogleIPhoneUtilities.framework */; };
 		22FC66311CF8B610006CA10E /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FC66301CF8B610006CA10E /* libicucore.tbd */; };
-		A6EAB8E5C4BA92B9FC29FEF4 /* Pods_BDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F79E187FF1F9C6546AE5CF /* Pods_BDD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,11 +51,17 @@
 		220FE03B1CF8A4C8008893D8 /* Den_Delivery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Den_Delivery-Bridging-Header.h"; sourceTree = "<group>"; };
 		220FE03C1CF8A708008893D8 /* menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = menu.pdf; sourceTree = "<group>"; };
 		220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22FC661E1CF8B3E1006CA10E /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		22FC661F1CF8B3E1006CA10E /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		22FC66201CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		22FC66211CF8B3E1006CA10E /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		22FC66221CF8B3E1006CA10E /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		22FC66281CF8B417006CA10E /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		22FC662A1CF8B422006CA10E /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = "<group>"; };
+		22FC662B1CF8B422006CA10E /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
+		22FC662E1CF8B4D4006CA10E /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		22FC662F1CF8B503006CA10E /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		22FC66301CF8B610006CA10E /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		43B66EF8464B60CCA75DE01F /* Pods-BDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDD/Pods-BDD.debug.xcconfig"; sourceTree = "<group>"; };
-		A2F79E187FF1F9C6546AE5CF /* Pods_BDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8CC4D7721EB96A408C28F73 /* Pods-BDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDD/Pods-BDD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +70,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FC66311CF8B610006CA10E /* libicucore.tbd in Frameworks */,
-				A6EAB8E5C4BA92B9FC29FEF4 /* Pods_BDD.framework in Frameworks */,
+				22FC66291CF8B417006CA10E /* FirebaseDatabase.framework in Frameworks */,
+				22FC662C1CF8B422006CA10E /* FirebaseMessaging.framework in Frameworks */,
+				22FC66251CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework in Frameworks */,
+				22FC66231CF8B3E1006CA10E /* FirebaseAnalytics.framework in Frameworks */,
+				22FC66261CF8B3E1006CA10E /* GoogleSymbolUtilities.framework in Frameworks */,
+				22FC66271CF8B3E1006CA10E /* GoogleUtilities.framework in Frameworks */,
+				22FC66241CF8B3E1006CA10E /* FirebaseInstanceID.framework in Frameworks */,
+				22FC662D1CF8B422006CA10E /* GoogleIPhoneUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +92,6 @@
 				220FE0151CF8A186008893D8 /* Products */,
 				220FE0291CF8A4A2008893D8 /* ProgressHUD */,
 				2942D4023F99BD2BFAF805D0 /* Frameworks */,
-				269ADE56E6D363C5A79AC425 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,21 +133,20 @@
 			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
-		269ADE56E6D363C5A79AC425 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				43B66EF8464B60CCA75DE01F /* Pods-BDD.debug.xcconfig */,
-				E8CC4D7721EB96A408C28F73 /* Pods-BDD.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		2942D4023F99BD2BFAF805D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				22FC66301CF8B610006CA10E /* libicucore.tbd */,
 				22FC662F1CF8B503006CA10E /* module.modulemap */,
-				A2F79E187FF1F9C6546AE5CF /* Pods_BDD.framework */,
+				22FC662E1CF8B4D4006CA10E /* Firebase.h */,
+				22FC662A1CF8B422006CA10E /* FirebaseMessaging.framework */,
+				22FC662B1CF8B422006CA10E /* GoogleIPhoneUtilities.framework */,
+				22FC66281CF8B417006CA10E /* FirebaseDatabase.framework */,
+				22FC661E1CF8B3E1006CA10E /* FirebaseAnalytics.framework */,
+				22FC661F1CF8B3E1006CA10E /* FirebaseInstanceID.framework */,
+				22FC66201CF8B3E1006CA10E /* GoogleInterchangeUtilities.framework */,
+				22FC66211CF8B3E1006CA10E /* GoogleSymbolUtilities.framework */,
+				22FC66221CF8B3E1006CA10E /* GoogleUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,12 +158,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 220FE0261CF8A187008893D8 /* Build configuration list for PBXNativeTarget "BDD" */;
 			buildPhases = (
-				B4D45452A4E94178FF34C88E /* 📦 Check Pods Manifest.lock */,
 				220FE0101CF8A186008893D8 /* Sources */,
 				220FE0111CF8A186008893D8 /* Frameworks */,
 				220FE0121CF8A186008893D8 /* Resources */,
-				51639E2A71C5283409EEFB49 /* 📦 Embed Pods Frameworks */,
-				C629EA18A397FAB1F2F42D3F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,54 +228,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		51639E2A71C5283409EEFB49 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BDD/Pods-BDD-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B4D45452A4E94178FF34C88E /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C629EA18A397FAB1F2F42D3F /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BDD/Pods-BDD-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		220FE0101CF8A186008893D8 /* Sources */ = {
@@ -387,13 +354,16 @@
 		};
 		220FE0271CF8A187008893D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43B66EF8464B60CCA75DE01F /* Pods-BDD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Den Delivery/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bdd.Den-Delivery";
@@ -405,13 +375,16 @@
 		};
 		220FE0281CF8A187008893D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8CC4D7721EB96A408C28F73 /* Pods-BDD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Den Delivery/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bdd.Den-Delivery";
