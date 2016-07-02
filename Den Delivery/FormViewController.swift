@@ -49,12 +49,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         // No separator after order cell
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func firstFieldDidChange(phoneField: UITextField) {
         let areaCode = areaCodeField.text
@@ -81,7 +75,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         switch textField {
         case self.nameField:
             self.locationField.becomeFirstResponder()
@@ -102,7 +95,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
             textView.text = nil
             textView.textColor = UIColor.darkGrayColor()
         }
-
         textView.font = UIFont(name: "Helvetica Neue", size: 14)
     }
     
