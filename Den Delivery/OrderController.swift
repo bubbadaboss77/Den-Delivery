@@ -11,4 +11,9 @@ import Foundation
 class OrderController {
     
     
+    // CRUD
+    
+    func createOrder(name: String, location: String, phoneNumber: String, order: String) -> Order {
+        return Order(name: name, location: location, phoneNumber: phoneNumber, orderText: order)
+    }
 }
