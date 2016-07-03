@@ -30,7 +30,6 @@ class OrderViewController: UIViewController {
             print("Error: " + error.localizedDescription)
         }
 
-        
         let openRef = firebaseRef.child("open")
         openRef.observeEventType(FIRDataEventType.Value, withBlock: {(snapshot) in
             openForDelivery = snapshot.value as! Bool
@@ -40,16 +39,6 @@ class OrderViewController: UIViewController {
                 self.closedScreen.hidden = false
             }
         })
-        
-//        let openRef = firebaseRef.childByAppendingPath("open")
-//        openRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            openForDelivery = snapshot.value as! Bool
-//            if openForDelivery == true {
-//                self.closedScreen.hidden = true
-//            } else {
-//                self.closedScreen.hidden = false
-//            }
-//        })
         
         self.headerContainer.layer.cornerRadius = 4.0
         self.headerContainer.layer.shadowColor = UIColor.blackColor().CGColor
@@ -96,11 +85,6 @@ class OrderViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func keyboardWillShow(notification: NSNotification) {
         self.scrollView.setContentOffset(CGPointMake(0, self.scrollView.frame.minY+(self.formContainerView.frame.minY/2)), animated: true)
@@ -122,30 +106,25 @@ class OrderViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     
     @IBAction func submitOrder(sender: AnyObject) {
         if formView.validateForm() {
             view.endEditing(true)
-            formView.postResponse("https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?", completionHandler: { (string, error) in
-                
-                if error != nil {
-                    print("Error occured: \(error)")
-                    ProgressHUD.showError("Error submitting order")
-                }
-                print("Data saved successfully!")
-                ProgressHUD.showSuccess("Order submitted successfully")
-                
-                self.formView.nameField.text = ""
-                self.formView.locationField.text = ""
-                self.formView.areaCodeField.text = ""
-                self.formView.secondPhoneField.text = ""
-                self.formView.thirdPhoneField.text = ""
-                
-                // Order textbox placeholder
-                self.formView.orderBox.text = "ORDER"
-                self.formView.orderBox.textColor = UIColor.lightGrayColor()
-                self.formView.orderBox.font = placeholderFont
-            })
+            
+            ProgressHUD.showSuccess("Order submitted successfully")
+            self.formView.clearFields()
+            
+//            formView.postResponse("https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?", completionHandler: { (string, error) in
+//                
+//                if error != nil {
+//                    print("Error occured: \(error)")
+//                    ProgressHUD.showError("Error submitting order")
+//                }
+//                print("Data saved successfully!")
+//                ProgressHUD.showSuccess("Order submitted successfully")
+//                self.formView.clearFields()
+//            })
         }
     }
 }

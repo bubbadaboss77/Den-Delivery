@@ -74,6 +74,8 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         }
     }
     
+    // MARK: - UITextField Delegate Methods
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         switch textField {
         case self.nameField:
@@ -88,7 +90,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         return true
     }
     
-    // UITextView Delegate Methods
+    // MARK: - UITextView Delegate Methods
     
     func textViewDidBeginEditing(textView: UITextView) {
         if textView.textColor == UIColor.lightGrayColor() {
@@ -114,6 +116,21 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
             return false
         }
         return true
+    }
+    
+    // MARK: - Helper Functions
+    
+    func clearFields() {
+        nameField.text = ""
+        locationField.text = ""
+        areaCodeField.text = ""
+        secondPhoneField.text = ""
+        thirdPhoneField.text = ""
+        
+        // Order textbox placeholder
+        orderBox.text = "ORDER"
+        orderBox.textColor = UIColor.lightGrayColor()
+        orderBox.font = placeholderFont
     }
     
     // Google Form HTTP POST Request
