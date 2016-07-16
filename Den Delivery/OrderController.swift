@@ -16,7 +16,7 @@ class OrderController {
     static func postOrder(order: Order, completion: (NSString?, NSError?) -> ()) {
         
         // TODO: Change URL
-        guard let url = testBaseURL else {
+        guard let url = baseURL else {
             print("Optional url is nil")
             return
         }
@@ -39,7 +39,7 @@ class OrderController {
         
         // Make POST request
         // TODO: Change url parameters
-        NetworkController.performRequestForURL(url, httpMethod: .Post, urlParameters: testSubmissionParameters) { (data, error) in
+        NetworkController.performRequestForURL(url, httpMethod: .Post, urlParameters: submissionParameters) { (data, error) in
             // Switch back to main thread
             dispatch_async(dispatch_get_main_queue(), { 
                 if let data = data, responseString = NSString(data: data, encoding: NSUTF8StringEncoding) {

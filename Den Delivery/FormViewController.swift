@@ -134,7 +134,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     }
     
     func validateForm() -> Bool {
-
         // Check connection
         if Reachability.isConnectedToNetwork() == false {
             ProgressHUD.showError("No internet connection")
@@ -160,7 +159,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
             ProgressHUD.showError("Please enter your order")
             return false
         }
-        print("form is valid")
         return true
     }
     
