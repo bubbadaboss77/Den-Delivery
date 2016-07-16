@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         UITabBar.appearance().tintColor = lightRedColor
-        
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         return true
