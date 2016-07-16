@@ -133,32 +133,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         orderBox.font = placeholderFont
     }
     
-    // Google Form HTTP POST Request
-    func postResponse(url: String, completionHandler: (NSString?, NSError?) -> ()) -> NSURLSessionTask {
-        let URL = NSURL(string: url)!
-        let request = NSMutableURLRequest(URL:URL)
-        request.HTTPMethod = "POST"
-        let fieldIds = ["entry.30856469","entry.1459419707","entry.278265666","entry.1962294575"]
-        var postString = "entry.30856469=" + self.nameField.text!
-        postString += "&" + fieldIds[1] + "=" + self.locationField.text!
-        // The phone number must be sent in the form of 10 numbers, xxxxxxxxxx, due to the data validation in place in google forms
-        postString += "&" + fieldIds[2] + "=" + self.areaCodeField.text! + self.secondPhoneField.text! + self.thirdPhoneField.text!
-        
-        postString += "&" + fieldIds[3] + "=" + self.orderBox.text!
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            dispatch_async(dispatch_get_main_queue()) {
-                guard data != nil else {
-                    completionHandler(nil, error)
-                    return
-                }
-                completionHandler(NSString(data: data!, encoding: NSUTF8StringEncoding), nil)
-            }
-        }
-        task.resume()
-        return task
-    }
-    
     func validateForm() -> Bool {
 
         // Check connection

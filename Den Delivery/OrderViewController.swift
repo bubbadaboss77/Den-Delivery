@@ -106,25 +106,38 @@ class OrderViewController: UIViewController {
         }
     }
     
+    func createOrderFromForm() -> Order? {
+        guard let name = formView.nameField.text, location = formView.locationField.text, areaCode = formView.areaCodeField.text, secondPhoneField = formView.secondPhoneField.text, thirdPhoneField = formView.thirdPhoneField.text, order = formView.orderBox.text else { return nil }
+        
+        let phoneNumber = areaCode + secondPhoneField + thirdPhoneField
+        return OrderController.createOrder(name, location: location, phoneNumber: phoneNumber, order: order)
+    }
+    
     // MARK: - IBActions
     
     @IBAction func submitOrder(sender: AnyObject) {
         if formView.validateForm() {
             view.endEditing(true)
-            
-            ProgressHUD.showSuccess("Order submitted successfully")
-            self.formView.clearFields()
-            
-//            formView.postResponse("https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?", completionHandler: { (string, error) in
-//                
-//                if error != nil {
-//                    print("Error occured: \(error)")
-//                    ProgressHUD.showError("Error submitting order")
-//                }
-//                print("Data saved successfully!")
-//                ProgressHUD.showSuccess("Order submitted successfully")
-//                self.formView.clearFields()
-//            })
+            guard let order = createOrderFromForm() else {
+                ProgressHUD.showError("Error submitting order \u{1F615}")
+                return
+            }
+            ProgressHUD.show("Submitting order...")
+            OrderController.postOrder(order, completion: { (response, error) in
+                if error != nil {
+                    // Error
+                    print("Error occurred: \(error)")
+                    ProgressHUD.showError("Error submitting order \u{1F615}")
+                } else {
+                    // Success!
+                    print("\(response)")
+                    ProgressHUD.showSuccess("Order submitted successfully")
+                    self.formView.clearFields()
+                }
+            })
         }
     }
+    
+    
+    
 }
