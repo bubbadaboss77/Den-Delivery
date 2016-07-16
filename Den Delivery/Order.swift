@@ -15,6 +15,8 @@ class Order {
     var phoneNumber: String
     var orderText: String
     
+    
+    
     init(name: String, location: String, phoneNumber: String, orderText: String) {
         self.name = name
         self.location = location

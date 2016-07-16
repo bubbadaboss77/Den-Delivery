@@ -135,7 +135,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     
     // Google Form HTTP POST Request
     func postResponse(url: String, completionHandler: (NSString?, NSError?) -> ()) -> NSURLSessionTask {
-        ProgressHUD.show("Sending...")
         let URL = NSURL(string: url)!
         let request = NSMutableURLRequest(URL:URL)
         request.HTTPMethod = "POST"
