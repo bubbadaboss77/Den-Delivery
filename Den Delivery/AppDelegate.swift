@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 // GLOBALS
 let darkRedColor = UIColor(colorLiteralRed: 0.533, green: 0.063, blue: 0.141, alpha: 1.0) // #881024

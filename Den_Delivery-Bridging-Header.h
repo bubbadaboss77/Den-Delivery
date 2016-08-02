@@ -10,6 +10,5 @@
 #define Den_Delivery_Bridging_Header_h
 
 #import "ProgressHUD.h"
-#import "Firebase.h"
 
 #endif /* Den_Delivery_Bridging_Header_h */
