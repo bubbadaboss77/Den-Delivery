@@ -315,7 +315,7 @@
                                     <outlet property="delegate" destination="27w-bv-ldx" id="t7M-WU-os7"/>
                                 </connections>
                             </scrollView>
-                            <view hidden="YES" opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHw-wI-5IG" userLabel="Closed View">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHw-wI-5IG" userLabel="Closed View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7lf-6H-s9J">

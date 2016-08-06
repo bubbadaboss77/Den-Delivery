@@ -15,10 +15,19 @@ let lightRedColor = UIColor(colorLiteralRed: 0.8, green: 0.094, blue: 0.212, alp
 
 let placeholderFont = UIFont(name: "Helvetica Neue", size: 13)
 
-// DD open/closed?
-var openForDelivery = false
-
 let firebaseRef = FIRDatabase.database().reference()
+
+
+// NSNotificatin Center Config
+let openStatusChangedNotificationKey = "com.bdd.openStatusChangedNotification"
+
+// DD open/closed?
+var openForDelivery = false {
+    didSet {
+        NSNotificationCenter.defaultCenter().postNotificationName(openStatusChangedNotificationKey, object: nil)
+        print("openForDelivery value changed: \(openForDelivery)")
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
+        
+        FirebaseController.sharedController.openStatusChangedObserver()
         
         UITabBar.appearance().tintColor = lightRedColor
         UIApplication.sharedApplication().statusBarStyle = .LightContent

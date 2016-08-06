@@ -26,42 +26,27 @@ class OrderViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let customMessageRef = firebaseRef.child("custom closed message")
-        customMessageRef.observeSingleEventOfType(.Value, withBlock: {(snapshot) in
-            self.closedMessage.text = snapshot.value as? String
-            
-        }) { (error) in
-            print("Error: " + error.localizedDescription)
+        // Listen for open status changes
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setupClosedView), name: openStatusChangedNotificationKey, object: nil)
+        // Observe closed message
+        FirebaseController.sharedController.fetchClosedMessage { (message) in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.closedMessage.text = message
+            })
         }
-
-        let openRef = firebaseRef.child("open")
-        openRef.observeEventType(FIRDataEventType.Value, withBlock: {(snapshot) in
-            openForDelivery = snapshot.value as! Bool
-            if openForDelivery == true {
-                self.closedScreen.hidden = true
-            } else {
-                self.closedScreen.hidden = false
-            }
-        })
-        
         setupFormViews()
-        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OrderViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OrderViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OrderViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         if !Reachability.isConnectedToNetwork() {
-            print("Internet connection failed")
-            ProgressHUD.showError("Not connected to internet")
+            self.closedMessage.text = "Error: No network connection"
+            ProgressHUD.showError("No network connection")
             return
         }
-        setupClosedView()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -114,7 +99,6 @@ class OrderViewController: UIViewController {
     
     func keyboardWillHide(notification: NSNotification) {
         self.scrollView.frame.origin.y = 0.0
-        
     }
     
     func dismissKeyboard() {
