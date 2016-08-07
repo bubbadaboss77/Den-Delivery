@@ -107,8 +107,16 @@ class FaqViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "snapchat" {
-            let vc = segue.destinationViewController as! WebViewController
+            guard let vc = segue.destinationViewController as? WebViewController else { return }
             vc.url = NSURL(string: "http://www.snapchat.com/add/den_delivery")!
+        } else if segue.identifier == "faqSegue" {
+            guard let vc = segue.destinationViewController as? InfoTableViewController else { return }
+            vc.parentDirectory = FirebaseController.sharedController.faqsKey
+            vc.sender = "FAQs"
+        } else if segue.identifier == "deliveryFeesSegue" {
+            guard let vc = segue.destinationViewController as? InfoTableViewController else { return }
+            vc.parentDirectory = FirebaseController.sharedController.deliveryFeesKey
+            vc.sender = "Delivery Fees"
         }
     }
 }

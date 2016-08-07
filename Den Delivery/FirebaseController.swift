@@ -13,11 +13,11 @@ class FirebaseController {
     
     static let sharedController = FirebaseController()
     
-    private let closedMessageKey = "custom closed message"
-    private let deliveryFeesKey = "deliveryFees"
-    private let faqsKey = "faqs"
-    private let openKey = "open"
-    private let passwordKey = "password"
+    let closedMessageKey = "custom closed message"
+    let deliveryFeesKey = "deliveryFees"
+    let faqsKey = "faqs"
+    let openKey = "open"
+    let passwordKey = "password"
     
     // MARK: - Open Status
     

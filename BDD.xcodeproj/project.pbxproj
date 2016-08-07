@@ -24,8 +24,10 @@
 		2211562D1D274A6600644EAF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211562C1D274A6600644EAF /* Order.swift */; };
 		221156301D274D0500644EAF /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211562F1D274D0500644EAF /* OrderController.swift */; };
 		222464221D39E64000DECF46 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222464211D39E64000DECF46 /* NetworkController.swift */; };
+		22B43ACE1D57069A008AE504 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B43ACD1D57069A008AE504 /* InfoTableViewCell.swift */; };
 		22CAD21B1D55B6D3009F0318 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAD21A1D55B6D3009F0318 /* FirebaseController.swift */; };
 		22CDCFC61D56B2BB0010298D /* ClosedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDCFC51D56B2BB0010298D /* ClosedScreenViewController.swift */; };
+		22FC9F0F1D56C1A10081B63C /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC9F0E1D56C1A10081B63C /* InfoTableViewController.swift */; };
 		D5140087FCF22B06EB7548CF /* Pods_BDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FECC90A18DCE4C83D86B5FD /* Pods_BDD.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +53,10 @@
 		2211562C1D274A6600644EAF /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		2211562F1D274D0500644EAF /* OrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
 		222464211D39E64000DECF46 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		22B43ACD1D57069A008AE504 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		22CAD21A1D55B6D3009F0318 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		22CDCFC51D56B2BB0010298D /* ClosedScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedScreenViewController.swift; sourceTree = "<group>"; };
+		22FC9F0E1D56C1A10081B63C /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		5220ED2A9A5A8E63429F8AD8 /* Pods-BDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDD/Pods-BDD.debug.xcconfig"; sourceTree = "<group>"; };
 		6FECC90A18DCE4C83D86B5FD /* Pods_BDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8291621857EC6FEE9BE94063 /* Pods-BDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDD/Pods-BDD.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,9 +139,11 @@
 				220FE0321CF8A4B6008893D8 /* OrderViewController.swift */,
 				220FE0311CF8A4B6008893D8 /* MenuViewController.swift */,
 				220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */,
+				22FC9F0E1D56C1A10081B63C /* InfoTableViewController.swift */,
 				220FE0341CF8A4B6008893D8 /* WebViewController.swift */,
 				220FE0301CF8A4B6008893D8 /* FormViewController.swift */,
 				22CDCFC51D56B2BB0010298D /* ClosedScreenViewController.swift */,
+				22B43ACD1D57069A008AE504 /* InfoTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -306,7 +312,9 @@
 				220FE02E1CF8A4A2008893D8 /* ProgressHUD.m in Sources */,
 				220FE0371CF8A4B6008893D8 /* MenuViewController.swift in Sources */,
 				2211562D1D274A6600644EAF /* Order.swift in Sources */,
+				22B43ACE1D57069A008AE504 /* InfoTableViewCell.swift in Sources */,
 				220FE0181CF8A187008893D8 /* AppDelegate.swift in Sources */,
+				22FC9F0F1D56C1A10081B63C /* InfoTableViewController.swift in Sources */,
 				220FE0361CF8A4B6008893D8 /* FormViewController.swift in Sources */,
 				221156301D274D0500644EAF /* OrderController.swift in Sources */,
 				220FE0351CF8A4B6008893D8 /* FaqViewController.swift in Sources */,

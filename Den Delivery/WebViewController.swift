@@ -22,11 +22,6 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         let request:NSURLRequest = NSURLRequest(URL: url)
         webView.loadRequest(request)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func webViewDidStartLoad(webView: UIWebView) {
         self.activityIndicator.startAnimating()
