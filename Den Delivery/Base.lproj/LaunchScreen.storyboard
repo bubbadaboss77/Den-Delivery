@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -18,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sRc-m5-pp4">
-                                <rect key="frame" x="180" y="180" width="240" height="240"/>
+                                <rect key="frame" x="180" y="40" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="AnQ-DD-duI"/>
                                     <constraint firstAttribute="width" constant="240" id="vMl-ZQ-yhx"/>
@@ -27,8 +26,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="sRc-m5-pp4" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="40" id="QNB-c9-7zn"/>
                             <constraint firstItem="sRc-m5-pp4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gDe-AP-lHG"/>
-                            <constraint firstItem="sRc-m5-pp4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oMs-dG-BfH"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

@@ -25,6 +25,7 @@
 		221156301D274D0500644EAF /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2211562F1D274D0500644EAF /* OrderController.swift */; };
 		222464221D39E64000DECF46 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222464211D39E64000DECF46 /* NetworkController.swift */; };
 		22CAD21B1D55B6D3009F0318 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAD21A1D55B6D3009F0318 /* FirebaseController.swift */; };
+		22CDCFC61D56B2BB0010298D /* ClosedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDCFC51D56B2BB0010298D /* ClosedScreenViewController.swift */; };
 		D5140087FCF22B06EB7548CF /* Pods_BDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FECC90A18DCE4C83D86B5FD /* Pods_BDD.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		2211562F1D274D0500644EAF /* OrderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
 		222464211D39E64000DECF46 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		22CAD21A1D55B6D3009F0318 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		22CDCFC51D56B2BB0010298D /* ClosedScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedScreenViewController.swift; sourceTree = "<group>"; };
 		5220ED2A9A5A8E63429F8AD8 /* Pods-BDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BDD/Pods-BDD.debug.xcconfig"; sourceTree = "<group>"; };
 		6FECC90A18DCE4C83D86B5FD /* Pods_BDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8291621857EC6FEE9BE94063 /* Pods-BDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-BDD/Pods-BDD.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,10 +133,11 @@
 			isa = PBXGroup;
 			children = (
 				220FE0321CF8A4B6008893D8 /* OrderViewController.swift */,
-				220FE0301CF8A4B6008893D8 /* FormViewController.swift */,
 				220FE0311CF8A4B6008893D8 /* MenuViewController.swift */,
 				220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */,
 				220FE0341CF8A4B6008893D8 /* WebViewController.swift */,
+				220FE0301CF8A4B6008893D8 /* FormViewController.swift */,
+				22CDCFC51D56B2BB0010298D /* ClosedScreenViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				220FE0351CF8A4B6008893D8 /* FaqViewController.swift in Sources */,
 				220FE0381CF8A4B6008893D8 /* OrderViewController.swift in Sources */,
 				220FE03A1CF8A4B6008893D8 /* WebViewController.swift in Sources */,
+				22CDCFC61D56B2BB0010298D /* ClosedScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

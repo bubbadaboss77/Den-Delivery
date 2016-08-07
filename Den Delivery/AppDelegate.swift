@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseController.sharedController.openStatusChangedObserver()
         
+        // Global Appearance
+//        UILabel.appearance().font = UIFont(name: "Avenir Next", size: 15.0)
         UITabBar.appearance().tintColor = lightRedColor
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         

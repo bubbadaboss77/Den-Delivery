@@ -12,13 +12,13 @@ import Firebase
 class OrderViewController: UIViewController {
     
     // MARK: - Properties
+    @IBOutlet weak var closedScreen: UIView!
     
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var formContainerView: UIView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var closedScreen: UIView!
-    @IBOutlet weak var closedMessage: UILabel!
+
     
     var formView: FormViewController! = nil
     
@@ -26,14 +26,10 @@ class OrderViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Listen for open status changes
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setupClosedView), name: openStatusChangedNotificationKey, object: nil)
-        // Observe closed message
-        FirebaseController.sharedController.fetchClosedMessage { (message) in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.closedMessage.text = message
-            })
-        }
+
         setupFormViews()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OrderViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -43,7 +39,6 @@ class OrderViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if !Reachability.isConnectedToNetwork() {
-            self.closedMessage.text = "Error: No network connection"
             ProgressHUD.showError("No network connection")
             return
         }
@@ -59,6 +54,8 @@ class OrderViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "embed" {
             formView = segue.destinationViewController as? FormViewController
+        } else if segue.identifier == "showOrderFormSegue" {
+            
         }
     }
     
