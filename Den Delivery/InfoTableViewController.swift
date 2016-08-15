@@ -25,6 +25,7 @@ class InfoTableViewController: UITableViewController {
                 self.tableView.rowHeight = UITableViewAutomaticDimension
                 self.tableView.estimatedRowHeight = 44
                 self.tableView.reloadData()
+                
             })
         }
     }
@@ -32,10 +33,9 @@ class InfoTableViewController: UITableViewController {
     func fetchInfoFromFirebase(completion: (items: [String]) -> Void) {
         firebaseRef.child(parentDirectory).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             guard let items = snapshot.value as? NSArray else { return }
+            // Convert to [String]
             let completionItems = items.flatMap { $0 as? String }
-            print(items)
             completion(items: completionItems)
-            
         }) { (error) in
             print(error.localizedDescription)
         }

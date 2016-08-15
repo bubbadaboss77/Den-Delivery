@@ -18,48 +18,65 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     @IBOutlet weak var secondPhoneField: UITextField!
     @IBOutlet weak var thirdPhoneField: UITextField!
     @IBOutlet weak var orderBox: UITextView!
+    
+    let textStyle = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: placeholderFont!]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let textStyle = [
-            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
-            NSFontAttributeName: placeholderFont!
-        ]
+        formatTextView()
+        formatTableView()
+        formatTextFields()
         
-        self.nameField.attributedPlaceholder = NSAttributedString(string: "NAME", attributes: textStyle)
-        self.locationField.attributedPlaceholder = NSAttributedString(string: "DORM/BUILDING, ROOM #", attributes: textStyle)
-        
-        // Order textbox placeholder
-        self.orderBox.text = "ORDER"
-        self.orderBox.textColor = UIColor.lightGrayColor()
-        self.orderBox.font = placeholderFont!
-        
+        // Phone text fields targets
         areaCodeField.addTarget(self, action: #selector(FormViewController.firstFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         secondPhoneField.addTarget(self, action: #selector(FormViewController.secondFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         thirdPhoneField.addTarget(self, action: #selector(FormViewController.thirdFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
-        
-        orderBox.layer.borderColor = UIColor.clearColor().CGColor
-        orderBox.layer.borderWidth = 1.0;
-        orderBox.layer.cornerRadius = 2.0;
-        
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
-        self.tableView.separatorInset = UIEdgeInsetsMake(10, 30, 10, 30)
-        self.tableView.layer.cornerRadius = 4.0
-        // No separator after order cell
 
     }
     
+    // MARK: - View Formatting
+    
+    func formatTableView() {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.separatorInset = UIEdgeInsetsMake(10, 30, 10, 30)
+        self.tableView.layer.cornerRadius = 4.0
+    }
+    
+    func formatTextFields() {
+        // placeholders
+        nameField.attributedPlaceholder = NSAttributedString(string: "NAME", attributes: textStyle)
+        locationField.attributedPlaceholder = NSAttributedString(string: "DORM/BUILDING, ROOM #", attributes: textStyle)
+        areaCodeField.attributedPlaceholder = NSAttributedString(string: "123", attributes: textStyle)
+        secondPhoneField.attributedPlaceholder = NSAttributedString(string: "456", attributes: textStyle)
+        thirdPhoneField.attributedPlaceholder = NSAttributedString(string: "7890", attributes: textStyle)
+    }
+    
+    func formatTextView() {
+        // Order textbox placeholder
+        orderBox.text = "ORDER"
+        orderBox.textColor = UIColor.lightGrayColor()
+        orderBox.font = placeholderFont
+        orderBox.layer.borderColor = UIColor.clearColor().CGColor
+        orderBox.layer.borderWidth = 1.0
+        orderBox.layer.cornerRadius = 2.0
+    }
+    
+    
+    // MARK: - TextField Delegate Methods
+    
     func firstFieldDidChange(phoneField: UITextField) {
         let areaCode = areaCodeField.text
-        if areaCode?.characters.count == 3 {
+        if areaCode?.characters.count >= 3 {
+            checkMaxLength(phoneField, maxLength: 3)
             secondPhoneField.becomeFirstResponder()
         }
     }
     
     func secondFieldDidChange(phoneField: UITextField) {
         let secondField = secondPhoneField.text
-        if (secondField?.characters.count == 3) {
+        if (secondField?.characters.count >= 3) {
+            checkMaxLength(phoneField, maxLength: 3)
             thirdPhoneField.becomeFirstResponder()
         }
     }
@@ -97,7 +114,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
             textView.text = nil
             textView.textColor = UIColor.darkGrayColor()
         }
-        textView.font = UIFont(name: "Helvetica Neue", size: 14)
+        textView.font = placeholderFont
     }
     
     
@@ -105,7 +122,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         if textView.text.isEmpty {
             textView.text = "ORDER"
             textView.textColor = UIColor.lightGrayColor()
-            textView.font = placeholderFont!
+            textView.font = placeholderFont
         }
         
     }
@@ -146,13 +163,13 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         } else if self.locationField.text == "" {
             ProgressHUD.showError("Please enter your location")
             return false
-        } else if self.areaCodeField.text == "" {
+        } else if self.areaCodeField.text?.characters.count < 3 {
             ProgressHUD.showError("Please complete your phone number")
             return false
-        } else if self.secondPhoneField.text == "" {
+        } else if self.secondPhoneField.text?.characters.count < 3 {
             ProgressHUD.showError("Please complete your phone number")
             return false
-        } else if self.thirdPhoneField.text == "" {
+        } else if self.thirdPhoneField.text?.characters.count < 4 {
             ProgressHUD.showError("Please complete your phone number")
             return false
         } else if self.orderBox.text == "ORDER" || self.orderBox.text == "" {

@@ -13,7 +13,7 @@ import Firebase
 let darkRedColor = UIColor(colorLiteralRed: 0.533, green: 0.063, blue: 0.141, alpha: 1.0) // #881024
 let lightRedColor = UIColor(colorLiteralRed: 0.8, green: 0.094, blue: 0.212, alpha: 1.0) // #CC1836
 
-let placeholderFont = UIFont(name: "Helvetica Neue", size: 13)
+let placeholderFont = UIFont(name: "Avenir Next", size: 16)
 
 let firebaseRef = FIRDatabase.database().reference()
 
@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Initialize Firebase
         FIRApp.configure()
@@ -47,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseController.sharedController.openStatusChangedObserver()
         
         // Global Appearance
-//        UILabel.appearance().font = UIFont(name: "Avenir Next", size: 15.0)
         UITabBar.appearance().tintColor = lightRedColor
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
