@@ -27,10 +27,14 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        OrderController.sharedController.loadUserInfoFromPersistentStore()
+        
         // Listen for open status changes
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setupClosedView), name: openStatusChangedNotificationKey, object: nil)
 
         setupFormViews()
+        updateFormWithUserInfo()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OrderViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OrderViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
@@ -60,6 +64,18 @@ class OrderViewController: UIViewController {
     }
     
     // MARK: - Views Setup
+    
+    func updateFormWithUserInfo() {
+        if let order = OrderController.sharedController.loadUserInfoFromPersistentStore() {
+            formView.nameField.text = order.name
+            formView.locationField.text = order.location
+            // Split phone number into digits to fill text fields
+            let digits = Array(order.phoneNumber.characters)
+            formView.areaCodeField.text = String(digits[0...2])
+            formView.secondPhoneField.text = String(digits[3...5])
+            formView.thirdPhoneField.text = String(digits[6...9])
+        }
+    }
     
     func setupClosedView() {
         if openForDelivery {
@@ -128,13 +144,11 @@ class OrderViewController: UIViewController {
                 } else {
                     // Success!
                     print("Successfully posted to form!")
+                    OrderController.sharedController.saveUserInfoToPersistentStore(order)
                     ProgressHUD.showSuccess("Order submitted successfully")
                     self.formView.clearFields()
                 }
             })
         }
     }
-    
-    
-    
 }

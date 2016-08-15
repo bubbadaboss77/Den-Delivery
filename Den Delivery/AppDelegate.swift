@@ -14,6 +14,7 @@ let darkRedColor = UIColor(colorLiteralRed: 0.533, green: 0.063, blue: 0.141, al
 let lightRedColor = UIColor(colorLiteralRed: 0.8, green: 0.094, blue: 0.212, alpha: 1.0) // #CC1836
 
 let placeholderFont = UIFont(name: "Avenir Next", size: 16)
+let formTextFont = UIFont(name: "AvenirNext-Medium", size: 16)
 
 let firebaseRef = FIRDatabase.database().reference()
 
@@ -46,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseController.sharedController.openStatusChangedObserver()
         
         // Global Appearance
+        UITextField.appearance().font = UIFont(name: "AvenirNext-Medium", size: 16)
         UITabBar.appearance().tintColor = lightRedColor
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         

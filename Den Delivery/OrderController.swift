@@ -10,8 +10,14 @@ import Foundation
 
 class OrderController {
     
+    static let sharedController = OrderController()
+    
+    private let currentUserInfoKey = "currentUserInfo"
+    
+    // MARK: - Post Order
+    
     static let baseURL = NSURL(string: "https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?")
-
+    
     static func postOrder(order: Order, completion: (NSString?, NSError?) -> ()) {
         guard let url = baseURL else {
             print("Optional url is nil")
@@ -42,5 +48,19 @@ class OrderController {
     
     static func createOrder(name: String, location: String, phoneNumber: String, order: String) -> Order {
         return Order(name: name, location: location, phoneNumber: phoneNumber, orderText: order)
+    }
+    
+    // MARK: - NSUserDefaults
+    
+    func loadUserInfoFromPersistentStore() -> Order? {
+        if let currentUserInfoDictionary = NSUserDefaults.standardUserDefaults().objectForKey(currentUserInfoKey) as? [String: AnyObject] {
+            return Order(dictionary: currentUserInfoDictionary)
+        } else {
+            return nil
+        }
+    }
+    
+    func saveUserInfoToPersistentStore(order: Order) {
+        NSUserDefaults.standardUserDefaults().setObject(order.orderDictionary, forKey: currentUserInfoKey)
     }
 }

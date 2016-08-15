@@ -38,6 +38,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     // MARK: - View Formatting
     
     func formatTableView() {
+        // Custom separators
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableView.separatorInset = UIEdgeInsetsMake(10, 30, 10, 30)
         self.tableView.layer.cornerRadius = 4.0
@@ -114,7 +115,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
             textView.text = nil
             textView.textColor = UIColor.darkGrayColor()
         }
-        textView.font = placeholderFont
+        textView.font = formTextFont
     }
     
     
@@ -138,11 +139,11 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     // MARK: - Helper Functions
     
     func clearFields() {
-        nameField.text = ""
-        locationField.text = ""
-        areaCodeField.text = ""
-        secondPhoneField.text = ""
-        thirdPhoneField.text = ""
+//        nameField.text = ""
+//        locationField.text = ""
+//        areaCodeField.text = ""
+//        secondPhoneField.text = ""
+//        thirdPhoneField.text = ""
         
         // Order textbox placeholder
         orderBox.text = "ORDER"
@@ -178,6 +179,8 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         }
         return true
     }
+    
+    
     
 
 }
