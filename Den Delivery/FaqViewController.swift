@@ -61,26 +61,26 @@ class FaqViewController: UITableViewController {
         }
         
         let doneAction = UIAlertAction(title: "Done", style: .Default) { (_) in
-            // Check Network Connection
-            if !Reachability.isConnectedToNetwork() {
-                ProgressHUD.showError("Network connection error")
-                return
-            }
             guard let enteredText = alert.textFields?[0].text else { return }
             FirebaseController.sharedController.fetchPassword({ (password, error) in
-                if error == nil {
+                if let _ = error {
+                    ProgressHUD.showError("Network connection failed")
+                } else {
                     guard let password = password else { return }
                     
                     if enteredText == password {
                         FirebaseController.sharedController.setOpenStatus(!openForDelivery, completion: { (error) in
                             if error != nil {
                                 print("Error occurred while setting open status: \(error?.localizedDescription)")
+                            } else {
+                                ProgressHUD.showError("Network connection failed")
                             }
                         })
                     } else {
                         self.toggleOpenButton()
                         ProgressHUD.showError("Wrong password")
                     }
+
                 }
             })
         }

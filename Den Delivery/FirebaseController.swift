@@ -21,12 +21,14 @@ class FirebaseController {
     
     // MARK: - Open Status
     
-    func openStatusChangedObserver() {
+    func openStatusChangedObserver(completion: (success: Bool) -> Void) {
         firebaseRef.child(openKey).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             guard let open = snapshot.value as? Bool else { return }
             openForDelivery = open
+            completion(success: true)
         }) { (error) in
             print("Error occurred while observing open status: \(error.localizedDescription)")
+            completion(success: false)
         }
     }
     
@@ -50,10 +52,13 @@ class FirebaseController {
     
     // MARK: - Custom Closed Message
     
-    func fetchClosedMessage(completion: (message: String?) -> Void) {
+    func fetchClosedMessage(completion: (message: String?, success: Bool) -> Void) {
         firebaseRef.child(closedMessageKey).observeEventType(.Value, withBlock: { (snapshot) in
             guard let message = snapshot.value as? String else { return }
-            completion(message: message)
-        })
+            completion(message: message, success: true)
+        }) { (error) in
+            print(error.localizedDescription)
+            completion(message: nil, success: false)
+        }
     }
 }

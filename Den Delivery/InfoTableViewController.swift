@@ -18,6 +18,7 @@ class InfoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = sender
         
         fetchInfoFromFirebase { (items) in
             dispatch_async(dispatch_get_main_queue(), {
@@ -54,14 +55,6 @@ class InfoTableViewController: UITableViewController {
         cell.cellLabel.text = items[indexPath.row]
         
         return cell
-    }
-    
-    
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0  {
-            return self.sender
-        }
-        return ""
     }
     
     

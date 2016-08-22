@@ -17,7 +17,6 @@
 		220FE0361CF8A4B6008893D8 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0301CF8A4B6008893D8 /* FormViewController.swift */; };
 		220FE0371CF8A4B6008893D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0311CF8A4B6008893D8 /* MenuViewController.swift */; };
 		220FE0381CF8A4B6008893D8 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0321CF8A4B6008893D8 /* OrderViewController.swift */; };
-		220FE0391CF8A4B6008893D8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0331CF8A4B6008893D8 /* Reachability.swift */; };
 		220FE03A1CF8A4B6008893D8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0341CF8A4B6008893D8 /* WebViewController.swift */; };
 		220FE03D1CF8A708008893D8 /* menu.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 220FE03C1CF8A708008893D8 /* menu.pdf */; };
 		220FE03F1CF8A941008893D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */; };
@@ -45,7 +44,6 @@
 		220FE0301CF8A4B6008893D8 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		220FE0311CF8A4B6008893D8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		220FE0321CF8A4B6008893D8 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
-		220FE0331CF8A4B6008893D8 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		220FE0341CF8A4B6008893D8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		220FE03B1CF8A4C8008893D8 /* Den_Delivery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Den_Delivery-Bridging-Header.h"; sourceTree = "<group>"; };
 		220FE03C1CF8A708008893D8 /* menu.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = menu.pdf; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 				220FE01B1CF8A187008893D8 /* Main.storyboard */,
 				220FE01E1CF8A187008893D8 /* Assets.xcassets */,
 				220FE0201CF8A187008893D8 /* LaunchScreen.storyboard */,
-				220FE0331CF8A4B6008893D8 /* Reachability.swift */,
 				220FE03C1CF8A708008893D8 /* menu.pdf */,
 				220FE0231CF8A187008893D8 /* Info.plist */,
 				220FE03E1CF8A941008893D8 /* GoogleService-Info.plist */,
@@ -308,7 +305,6 @@
 			files = (
 				22CAD21B1D55B6D3009F0318 /* FirebaseController.swift in Sources */,
 				222464221D39E64000DECF46 /* NetworkController.swift in Sources */,
-				220FE0391CF8A4B6008893D8 /* Reachability.swift in Sources */,
 				220FE02E1CF8A4A2008893D8 /* ProgressHUD.m in Sources */,
 				220FE0371CF8A4B6008893D8 /* MenuViewController.swift in Sources */,
 				2211562D1D274A6600644EAF /* Order.swift in Sources */,

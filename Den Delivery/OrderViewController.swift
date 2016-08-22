@@ -41,13 +41,6 @@ class OrderViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OrderViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if !Reachability.isConnectedToNetwork() {
-            ProgressHUD.showError("No network connection")
-            return
-        }
-    }
-    
     override func viewWillDisappear(animated: Bool) {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)

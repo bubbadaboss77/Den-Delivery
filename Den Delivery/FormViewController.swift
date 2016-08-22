@@ -152,11 +152,6 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     }
     
     func validateForm() -> Bool {
-        // Check connection
-        if Reachability.isConnectedToNetwork() == false {
-            ProgressHUD.showError("No internet connection")
-            return false
-        }
         
         if self.nameField.text == "" {
             ProgressHUD.showError("Please enter your name")

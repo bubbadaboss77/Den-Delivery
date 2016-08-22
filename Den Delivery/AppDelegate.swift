@@ -18,7 +18,6 @@ let formTextFont = UIFont(name: "AvenirNext-Medium", size: 16)
 
 let firebaseRef = FIRDatabase.database().reference()
 
-
 // NSNotificatin Center Config
 let openStatusChangedNotificationKey = "com.bdd.openStatusChangedNotification"
 
@@ -44,12 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         
-        FirebaseController.sharedController.openStatusChangedObserver()
+        FirebaseController.sharedController.openStatusChangedObserver { (success) in
+            if !success {
+                ProgressHUD.showError("Network connection failed")
+            }
+        }
         
         // Global Appearance
         UITextField.appearance().font = UIFont(name: "AvenirNext-Medium", size: 16)
         UITabBar.appearance().tintColor = lightRedColor
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+//        print("Firebase device token: \(FIRInstanceID.instanceID().token()!)")
         
         return true
     }
