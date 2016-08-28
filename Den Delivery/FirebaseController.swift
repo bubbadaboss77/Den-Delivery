@@ -27,7 +27,6 @@ class FirebaseController {
             openForDelivery = open
             completion(success: true)
         }) { (error) in
-            print("Error occurred while observing open status: \(error.localizedDescription)")
             completion(success: false)
         }
     }
@@ -56,9 +55,8 @@ class FirebaseController {
         firebaseRef.child(closedMessageKey).observeEventType(.Value, withBlock: { (snapshot) in
             guard let message = snapshot.value as? String else { return }
             completion(message: message, success: true)
-        }) { (error) in
-            print(error.localizedDescription)
-            completion(message: nil, success: false)
-        }
+        })
+        
+        completion(message: nil, success: false)
     }
 }

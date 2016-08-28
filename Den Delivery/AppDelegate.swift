@@ -44,10 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         FirebaseController.sharedController.openStatusChangedObserver { (success) in
-            if !success {
-                ProgressHUD.showError("Network connection failed")
-            }
+            
         }
+        
+//        FirebaseController.sharedController.openStatusChangedObserver { (success) in
+//            if !success {
+//                ProgressHUD.showError("Network connection failed")
+//            }
+//        }
         
         // Global Appearance
         UITextField.appearance().font = UIFont(name: "AvenirNext-Medium", size: 16)

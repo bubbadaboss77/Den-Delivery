@@ -1,5 +1,5 @@
 //
-//  FaqViewController.swift
+//  MoreViewController.swift
 //  Den Delivery
 //
 //  Created by Tim Chamberlin on 4/8/16.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FaqViewController: UITableViewController {
+class MoreViewController: UITableViewController {
     
     @IBOutlet weak var openSwitch: UISwitch!
     @IBOutlet weak var openLabel: UILabel!
@@ -32,14 +32,13 @@ class FaqViewController: UITableViewController {
         if openForDelivery {
             openSwitch.setOn(true, animated: true)
             openStatus = "Open for business"
-            ProgressHUD.showSuccess(openStatus)
             openLabel.text = openStatus
         } else {
             openSwitch.setOn(false, animated: true)
-            openStatus = "DD is closed"
-            ProgressHUD.showSuccess(openStatus)
+            openStatus = "BDD is closed"
             openLabel.text = openStatus
         }
+        ProgressHUD.showSuccess(openStatus)
     }
     
     func presentPasswordAlert() {
@@ -72,8 +71,6 @@ class FaqViewController: UITableViewController {
                         FirebaseController.sharedController.setOpenStatus(!openForDelivery, completion: { (error) in
                             if error != nil {
                                 print("Error occurred while setting open status: \(error?.localizedDescription)")
-                            } else {
-                                ProgressHUD.showError("Network connection failed")
                             }
                         })
                     } else {

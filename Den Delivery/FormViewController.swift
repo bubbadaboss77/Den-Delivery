@@ -175,8 +175,5 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         return true
     }
     
-    
-    
-
 }
 

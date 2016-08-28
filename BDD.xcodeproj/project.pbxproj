@@ -13,7 +13,7 @@
 		220FE0221CF8A187008893D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220FE0201CF8A187008893D8 /* LaunchScreen.storyboard */; };
 		220FE02D1CF8A4A2008893D8 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 220FE02A1CF8A4A2008893D8 /* ProgressHUD.bundle */; };
 		220FE02E1CF8A4A2008893D8 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 220FE02C1CF8A4A2008893D8 /* ProgressHUD.m */; };
-		220FE0351CF8A4B6008893D8 /* FaqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */; };
+		220FE0351CF8A4B6008893D8 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE02F1CF8A4B6008893D8 /* MoreViewController.swift */; };
 		220FE0361CF8A4B6008893D8 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0301CF8A4B6008893D8 /* FormViewController.swift */; };
 		220FE0371CF8A4B6008893D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0311CF8A4B6008893D8 /* MenuViewController.swift */; };
 		220FE0381CF8A4B6008893D8 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220FE0321CF8A4B6008893D8 /* OrderViewController.swift */; };
@@ -40,7 +40,7 @@
 		220FE02A1CF8A4A2008893D8 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		220FE02B1CF8A4A2008893D8 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		220FE02C1CF8A4A2008893D8 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
-		220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewController.swift; sourceTree = "<group>"; };
+		220FE02F1CF8A4B6008893D8 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		220FE0301CF8A4B6008893D8 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		220FE0311CF8A4B6008893D8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		220FE0321CF8A4B6008893D8 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				220FE0321CF8A4B6008893D8 /* OrderViewController.swift */,
 				220FE0311CF8A4B6008893D8 /* MenuViewController.swift */,
-				220FE02F1CF8A4B6008893D8 /* FaqViewController.swift */,
+				220FE02F1CF8A4B6008893D8 /* MoreViewController.swift */,
 				22FC9F0E1D56C1A10081B63C /* InfoTableViewController.swift */,
 				220FE0341CF8A4B6008893D8 /* WebViewController.swift */,
 				220FE0301CF8A4B6008893D8 /* FormViewController.swift */,
@@ -313,7 +313,7 @@
 				22FC9F0F1D56C1A10081B63C /* InfoTableViewController.swift in Sources */,
 				220FE0361CF8A4B6008893D8 /* FormViewController.swift in Sources */,
 				221156301D274D0500644EAF /* OrderController.swift in Sources */,
-				220FE0351CF8A4B6008893D8 /* FaqViewController.swift in Sources */,
+				220FE0351CF8A4B6008893D8 /* MoreViewController.swift in Sources */,
 				220FE0381CF8A4B6008893D8 /* OrderViewController.swift in Sources */,
 				220FE03A1CF8A4B6008893D8 /* WebViewController.swift in Sources */,
 				22CDCFC61D56B2BB0010298D /* ClosedScreenViewController.swift in Sources */,
