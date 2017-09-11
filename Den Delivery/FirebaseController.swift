@@ -21,42 +21,40 @@ class FirebaseController {
     
     // MARK: - Open Status
     
-    func openStatusChangedObserver(completion: (success: Bool) -> Void) {
-        firebaseRef.child(openKey).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+    func openStatusChangedObserver(_ completion: @escaping (_ success: Bool) -> Void) {
+        firebaseRef.child(openKey).observe(DataEventType.value, with: { (snapshot) in
             guard let open = snapshot.value as? Bool else { return }
             openForDelivery = open
-            completion(success: true)
+            completion(true)
         }) { (error) in
-            completion(success: false)
+            completion(false)
         }
     }
     
-    func setOpenStatus(value: Bool, completion: (error: NSError?) -> Void) {
-        firebaseRef.child(openKey).setValue(value) { (error, _) in
-            completion(error: error)
-        }
+    func setOpenStatus(_ value: Bool, completion: @escaping (_ error: NSError?) -> Void) {
+        firebaseRef.child(openKey).setValue(value)
     }
     
     // MARK: - Password
     
-    func fetchPassword(completion: (password: String?, error: NSError?) -> Void) {
-        firebaseRef.child(passwordKey).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+    func fetchPassword(_ completion: @escaping (_ password: String?, _ error: NSError?) -> Void) {
+        firebaseRef.child(passwordKey).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let password = snapshot.value as? String else { return }
-            completion(password: password, error: nil)
+            completion(password, nil)
         }) { (error) in
             print(error.localizedDescription)
-            completion(password: nil, error: error)
+            completion(nil, error as NSError)
         }
     }
     
     // MARK: - Custom Closed Message
     
-    func fetchClosedMessage(completion: (message: String?, success: Bool) -> Void) {
-        firebaseRef.child(closedMessageKey).observeEventType(.Value, withBlock: { (snapshot) in
+    func fetchClosedMessage(_ completion: @escaping (_ message: String?, _ success: Bool) -> Void) {
+        firebaseRef.child(closedMessageKey).observe(.value, with: { (snapshot) in
             guard let message = snapshot.value as? String else { return }
-            completion(message: message, success: true)
+            completion(message, true)
         })
         
-        completion(message: nil, success: false)
+        completion(nil, false)
     }
 }

@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 
 
@@ -19,7 +43,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     @IBOutlet weak var thirdPhoneField: UITextField!
     @IBOutlet weak var orderBox: UITextView!
     
-    let textStyle = [NSForegroundColorAttributeName: UIColor.lightGrayColor(), NSFontAttributeName: placeholderFont!]
+    let textStyle = [NSForegroundColorAttributeName: UIColor.lightGray, NSFontAttributeName: placeholderFont!]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +53,9 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         formatTextFields()
         
         // Phone text fields targets
-        areaCodeField.addTarget(self, action: #selector(FormViewController.firstFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
-        secondPhoneField.addTarget(self, action: #selector(FormViewController.secondFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
-        thirdPhoneField.addTarget(self, action: #selector(FormViewController.thirdFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        areaCodeField.addTarget(self, action: #selector(FormViewController.firstFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        secondPhoneField.addTarget(self, action: #selector(FormViewController.secondFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        thirdPhoneField.addTarget(self, action: #selector(FormViewController.thirdFieldDidChange(_:)), for: UIControlEvents.editingChanged)
 
     }
     
@@ -39,7 +63,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     
     func formatTableView() {
         // Custom separators
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         self.tableView.separatorInset = UIEdgeInsetsMake(10, 30, 10, 30)
         self.tableView.layer.cornerRadius = 4.0
     }
@@ -56,9 +80,9 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     func formatTextView() {
         // Order textbox placeholder
         orderBox.text = "ORDER"
-        orderBox.textColor = UIColor.lightGrayColor()
+        orderBox.textColor = UIColor.lightGray
         orderBox.font = placeholderFont
-        orderBox.layer.borderColor = UIColor.clearColor().CGColor
+        orderBox.layer.borderColor = UIColor.clear.cgColor
         orderBox.layer.borderWidth = 1.0
         orderBox.layer.cornerRadius = 2.0
     }
@@ -66,7 +90,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     
     // MARK: - TextField Delegate Methods
     
-    func firstFieldDidChange(phoneField: UITextField) {
+    func firstFieldDidChange(_ phoneField: UITextField) {
         let areaCode = areaCodeField.text
         if areaCode?.characters.count >= 3 {
             checkMaxLength(phoneField, maxLength: 3)
@@ -74,7 +98,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         }
     }
     
-    func secondFieldDidChange(phoneField: UITextField) {
+    func secondFieldDidChange(_ phoneField: UITextField) {
         let secondField = secondPhoneField.text
         if (secondField?.characters.count >= 3) {
             checkMaxLength(phoneField, maxLength: 3)
@@ -82,11 +106,11 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         }
     }
     
-    func thirdFieldDidChange(phoneField: UITextField) {
+    func thirdFieldDidChange(_ phoneField: UITextField) {
         checkMaxLength(thirdPhoneField, maxLength: 4)
     }
     
-    func checkMaxLength(textField: UITextField!, maxLength: Int) {
+    func checkMaxLength(_ textField: UITextField!, maxLength: Int) {
         if (textField.text!.characters.count > maxLength) {
             textField.deleteBackward()
         }
@@ -94,7 +118,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     
     // MARK: - UITextField Delegate Methods
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case self.nameField:
             self.locationField.becomeFirstResponder()
@@ -110,25 +134,25 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
     
     // MARK: - UITextView Delegate Methods
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        if textView.textColor == UIColor.lightGrayColor() {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.darkGrayColor()
+            textView.textColor = UIColor.darkGray
         }
         textView.font = formTextFont
     }
     
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "ORDER"
-            textView.textColor = UIColor.lightGrayColor()
+            textView.textColor = UIColor.lightGray
             textView.font = placeholderFont
         }
         
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             self.orderBox.resignFirstResponder()
             return false
@@ -147,7 +171,7 @@ class FormViewController: UITableViewController, UITextFieldDelegate, UITextView
         
         // Order textbox placeholder
         orderBox.text = "ORDER"
-        orderBox.textColor = UIColor.lightGrayColor()
+        orderBox.textColor = UIColor.lightGray
         orderBox.font = placeholderFont
     }
     

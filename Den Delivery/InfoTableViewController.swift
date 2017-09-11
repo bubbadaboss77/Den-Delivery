@@ -21,7 +21,7 @@ class InfoTableViewController: UITableViewController {
         self.title = sender
         
         fetchInfoFromFirebase { (items) in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.items = items
                 self.tableView.rowHeight = UITableViewAutomaticDimension
                 self.tableView.estimatedRowHeight = 44
@@ -31,12 +31,12 @@ class InfoTableViewController: UITableViewController {
         }
     }
     
-    func fetchInfoFromFirebase(completion: (items: [String]) -> Void) {
-        firebaseRef.child(parentDirectory).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+    func fetchInfoFromFirebase(_ completion: @escaping (_ items: [String]) -> Void) {
+        firebaseRef.child(parentDirectory).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let items = snapshot.value as? NSArray else { return }
             // Convert to [String]
             let completionItems = items.flatMap { $0 as? String }
-            completion(items: completionItems)
+            completion(completionItems)
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -44,12 +44,12 @@ class InfoTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("infoCell", forIndexPath: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoTableViewCell else { return UITableViewCell() }
         
         
         cell.cellLabel.text = items[indexPath.row]

@@ -17,7 +17,7 @@ class ClosedScreenViewController: UIViewController {
 
         // Observe closed message
         FirebaseController.sharedController.fetchClosedMessage { (message, success) in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.closedMessage.text = message
             })
         }

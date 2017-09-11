@@ -18,29 +18,28 @@ class NetworkController {
         case Delete = "DELETE"
     }
     
-    static func performRequestForURL(url: NSURL, httpMethod: HTTPMethod, urlParameters: [String:String]? = nil, body: NSData? = nil, completion: ((data: NSData?, error: NSError?) -> Void)?) {
+    static func performRequestForURL(_ url: URL, httpMethod: HTTPMethod, urlParameters: [String:String]? = nil, body: Data? = nil, completion: ((_ data: Data?, _ error: Error?) -> Void)?) {
         
         let requestURL = urlFromParameters(url, urlParameters: urlParameters)
-        let request = NSMutableURLRequest(URL: requestURL)
+        let request = NSMutableURLRequest(url: requestURL)
         
-        request.HTTPMethod = httpMethod.rawValue
-        request.HTTPBody = body
+        request.httpMethod = httpMethod.rawValue
+        request.httpBody = body
         
-        let session = NSURLSession.sharedSession()
-        let dataTask = session.dataTaskWithRequest(request) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest) { (data, reponse, error) in
             if let completion = completion {
-                completion(data: data, error: error)
+                completion(data, error)
             }
         }
         dataTask.resume()
     }
     
-    static func urlFromParameters(url: NSURL, urlParameters: [String:String]?) -> NSURL {
-        let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: true)
+    static func urlFromParameters(_ url: URL, urlParameters: [String:String]?) -> URL {
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
-        components?.queryItems = urlParameters?.flatMap({NSURLQueryItem(name: $0.0, value: $0.1)})
+        components?.queryItems = urlParameters?.flatMap({URLQueryItem(name: $0.0, value: $0.1)})
         
-        if let url = components?.URL {
+        if let url = components?.url {
             return url
         } else {
             fatalError("URL optional is nil")

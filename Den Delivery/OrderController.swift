@@ -12,13 +12,13 @@ class OrderController {
     
     static let sharedController = OrderController()
     
-    private let currentUserInfoKey = "currentUserInfo"
+    fileprivate let currentUserInfoKey = "currentUserInfo"
     
     // MARK: - Post Order
     
-    static let baseURL = NSURL(string: "https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?")
+    static let baseURL = URL(string: "https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?")
     
-    static func postOrder(order: Order, completion: (NSString?, NSError?) -> ()) {
+    static func postOrder(_ order: Order, completion: @escaping (NSString?, Error?) -> ()) {
         guard let url = baseURL else {
             print("Optional url is nil")
             return
@@ -34,8 +34,8 @@ class OrderController {
         // Make POST request to Google Form
         NetworkController.performRequestForURL(url, httpMethod: .Post, urlParameters: submissionParameters) { (data, error) in
             // Switch back to main thread
-            dispatch_async(dispatch_get_main_queue(), { 
-                if let data = data, responseString = NSString(data: data, encoding: NSUTF8StringEncoding) {
+            DispatchQueue.main.async(execute: { 
+                if let data = data, let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     completion(responseString, nil)
                 } else {
                     completion(nil, error)
@@ -46,21 +46,21 @@ class OrderController {
     
     // CRUD Methods
     
-    static func createOrder(name: String, location: String, phoneNumber: String, order: String) -> Order {
+    static func createOrder(_ name: String, location: String, phoneNumber: String, order: String) -> Order {
         return Order(name: name, location: location, phoneNumber: phoneNumber, orderText: order)
     }
     
     // MARK: - NSUserDefaults
     
     func loadUserInfoFromPersistentStore() -> Order? {
-        if let currentUserInfoDictionary = NSUserDefaults.standardUserDefaults().objectForKey(currentUserInfoKey) as? [String: AnyObject] {
+        if let currentUserInfoDictionary = UserDefaults.standard.object(forKey: currentUserInfoKey) as? [String: AnyObject] {
             return Order(dictionary: currentUserInfoDictionary)
         } else {
             return nil
         }
     }
     
-    func saveUserInfoToPersistentStore(order: Order) {
-        NSUserDefaults.standardUserDefaults().setObject(order.orderDictionary, forKey: currentUserInfoKey)
+    func saveUserInfoToPersistentStore(_ order: Order) {
+        UserDefaults.standard.set(order.orderDictionary, forKey: currentUserInfoKey)
     }
 }

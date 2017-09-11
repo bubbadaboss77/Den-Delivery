@@ -19,10 +19,10 @@ class MoreViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleOpenButton()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(toggleOpenButton), name: openStatusChangedNotificationKey, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleOpenButton), name: NSNotification.Name(rawValue: openStatusChangedNotificationKey), object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
     
@@ -42,15 +42,15 @@ class MoreViewController: UITableViewController {
     }
     
     func presentPasswordAlert() {
-        let alert = UIAlertController(title: "Enter password", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Enter password", message: "", preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addTextFieldWithConfigurationHandler { (textField) in
+        alert.addTextField { (textField) in
             textField.placeholder = "Enter password..."
-            textField.secureTextEntry = true
+            textField.isSecureTextEntry = true
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in
-            if self.openSwitch.on {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            if self.openSwitch.isOn {
                 self.openSwitch.setOn(false, animated: false)
                 return
             } else {
@@ -59,7 +59,7 @@ class MoreViewController: UITableViewController {
             }
         }
         
-        let doneAction = UIAlertAction(title: "Done", style: .Default) { (_) in
+        let doneAction = UIAlertAction(title: "Done", style: .default) { (_) in
             guard let enteredText = alert.textFields?[0].text else { return }
             FirebaseController.sharedController.fetchPassword({ (password, error) in
                 if let _ = error {
@@ -70,7 +70,7 @@ class MoreViewController: UITableViewController {
                     if enteredText == password {
                         FirebaseController.sharedController.setOpenStatus(!openForDelivery, completion: { (error) in
                             if error != nil {
-                                print("Error occurred while setting open status: \(error?.localizedDescription)")
+                                print("Error occurred while setting open status: \(String(describing: error?.localizedDescription))")
                             }
                         })
                     } else {
@@ -83,35 +83,35 @@ class MoreViewController: UITableViewController {
         }
         alert.addAction(cancelAction)
         alert.addAction(doneAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - IBActions
     
-    @IBAction func switchChanged(sender: AnyObject) {
+    @IBAction func switchChanged(_ sender: AnyObject) {
         presentPasswordAlert()
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 1 {
                 // open den delivery facebook page
-                let url = NSURL(string: "https://www.facebook.com/BobcatDenDelivery/?fref=ts")!
-                UIApplication.sharedApplication().openURL(url)
+                let url = URL(string: "https://www.facebook.com/BobcatDenDelivery/?fref=ts")!
+                UIApplication.shared.openURL(url)
             }
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "snapchat" {
-            guard let vc = segue.destinationViewController as? WebViewController else { return }
-            vc.url = NSURL(string: "http://www.snapchat.com/add/den_delivery")!
+            guard let vc = segue.destination as? WebViewController else { return }
+            vc.url = URL(string: "http://www.snapchat.com/add/den_delivery")!
         } else if segue.identifier == "faqSegue" {
-            guard let vc = segue.destinationViewController as? InfoTableViewController else { return }
+            guard let vc = segue.destination as? InfoTableViewController else { return }
             vc.parentDirectory = FirebaseController.sharedController.faqsKey
             vc.sender = "FAQs"
         } else if segue.identifier == "deliveryFeesSegue" {
-            guard let vc = segue.destinationViewController as? InfoTableViewController else { return }
+            guard let vc = segue.destination as? InfoTableViewController else { return }
             vc.parentDirectory = FirebaseController.sharedController.deliveryFeesKey
             vc.sender = "Delivery Fees"
         }

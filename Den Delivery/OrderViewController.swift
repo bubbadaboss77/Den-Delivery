@@ -30,27 +30,27 @@ class OrderViewController: UIViewController {
         OrderController.sharedController.loadUserInfoFromPersistentStore()
         
         // Listen for open status changes
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setupClosedView), name: openStatusChangedNotificationKey, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupClosedView), name: NSNotification.Name(rawValue: openStatusChangedNotificationKey), object: nil)
 
         setupFormViews()
         updateFormWithUserInfo()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OrderViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OrderViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(OrderViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OrderViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OrderViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
     
     // MARK: - Segue
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "embed" {
-            formView = segue.destinationViewController as? FormViewController
+            formView = segue.destination as? FormViewController
         } else if segue.identifier == "showOrderFormSegue" {
             
         }
@@ -72,38 +72,38 @@ class OrderViewController: UIViewController {
     
     func setupClosedView() {
         if openForDelivery {
-            closedScreen.hidden = true
+            closedScreen.isHidden = true
         } else {
-            closedScreen.hidden = false
+            closedScreen.isHidden = false
         }
     }
     
     func setupFormViews() {
         headerContainer.layer.cornerRadius = 4.0
-        headerContainer.layer.shadowColor = UIColor.blackColor().CGColor
+        headerContainer.layer.shadowColor = UIColor.black.cgColor
         headerContainer.layer.shadowOpacity = 0.3
         headerContainer.layer.shadowRadius = 2.0
-        headerContainer.layer.shadowOffset = CGSizeMake(3.0, 3.0)
+        headerContainer.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
         
-        formContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+        formContainerView.layer.shadowColor = UIColor.black.cgColor
         formContainerView.layer.shadowOpacity = 0.3
         formContainerView.layer.shadowRadius = 2.0
-        formContainerView.layer.shadowOffset = CGSizeMake(3.0, 3.0)
+        formContainerView.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
         
-        submitButton.setTitle("SUBMIT ORDER", forState: .Normal)
-        submitButton.layer.shadowColor = UIColor.blackColor().CGColor
+        submitButton.setTitle("SUBMIT ORDER", for: UIControlState())
+        submitButton.layer.shadowColor = UIColor.black.cgColor
         submitButton.layer.shadowOpacity = 0.3
         submitButton.layer.shadowRadius = 2.0
-        submitButton.layer.shadowOffset = CGSizeMake(3.0, 3.0)
+        submitButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
     }
     
     // MARK: - Keyboard Handling
     
-    func keyboardWillShow(notification: NSNotification) {
-        self.scrollView.setContentOffset(CGPointMake(0, self.scrollView.frame.minY+(self.formContainerView.frame.minY/2)), animated: true)
+    func keyboardWillShow(_ notification: Notification) {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: self.scrollView.frame.minY+(self.formContainerView.frame.minY/2)), animated: true)
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         self.scrollView.frame.origin.y = 0.0
     }
     
@@ -115,13 +115,13 @@ class OrderViewController: UIViewController {
     // MARK: - Form Submission
     
     func createOrderFromForm() -> Order? {
-        guard let name = formView.nameField.text, location = formView.locationField.text, areaCode = formView.areaCodeField.text, secondPhoneField = formView.secondPhoneField.text, thirdPhoneField = formView.thirdPhoneField.text, order = formView.orderBox.text else { return nil }
+        guard let name = formView.nameField.text, let location = formView.locationField.text, let areaCode = formView.areaCodeField.text, let secondPhoneField = formView.secondPhoneField.text, let thirdPhoneField = formView.thirdPhoneField.text, let order = formView.orderBox.text else { return nil }
         
         let phoneNumber = areaCode + secondPhoneField + thirdPhoneField
         return OrderController.createOrder(name, location: location, phoneNumber: phoneNumber, order: order)
     }
     
-    @IBAction func submitOrder(sender: AnyObject) {
+    @IBAction func submitOrder(_ sender: AnyObject) {
         if formView.validateForm() {
             view.endEditing(true)
             guard let order = createOrderFromForm() else {
