@@ -17,14 +17,8 @@ class ClosedScreenViewController: UIViewController {
 
         // Observe closed message
         FirebaseController.sharedController.fetchClosedMessage { (message, success) in
-            dispatch_async(dispatch_get_main_queue(), {
-                if !success {
-                    ProgressHUD.showError("Network connection failed")
-                    self.closedMessage.text = "No network connection available. Please connect to a network."
-                } else {
-                    self.closedMessage.text = message
-                }
-
+            DispatchQueue.main.async(execute: {
+                self.closedMessage.text = message
             })
         }
     }

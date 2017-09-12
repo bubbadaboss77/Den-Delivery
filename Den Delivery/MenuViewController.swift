@@ -21,13 +21,13 @@ class MenuViewController: UIViewController {
 //        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
 //        UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
-        path = NSBundle.mainBundle().pathForResource("menu", ofType: "pdf")!
+        path = Bundle.main.path(forResource: "menu", ofType: "pdf")!
         
-        let url = NSURL.fileURLWithPath(path)
-        self.webView.loadRequest(NSURLRequest(URL: url))
+        let url = URL(fileURLWithPath: path)
+        self.webView.loadRequest(URLRequest(url: url))
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 

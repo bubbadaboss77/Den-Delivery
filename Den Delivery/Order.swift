@@ -10,9 +10,9 @@ import Foundation
 
 class Order {
     
-    private let nameKey = "name"
-    private let locationKey = "location"
-    private let phoneNumberKey = "phoneNumber"
+    fileprivate let nameKey = "name"
+    fileprivate let locationKey = "location"
+    fileprivate let phoneNumberKey = "phoneNumber"
     
     var name: String
     var location: String
@@ -20,7 +20,7 @@ class Order {
     var orderText: String
     
     var orderDictionary: [String: AnyObject] {
-        return [nameKey:name, locationKey:location, phoneNumberKey:phoneNumber]
+        return [nameKey:name as AnyObject, locationKey:location as AnyObject, phoneNumberKey:phoneNumber as AnyObject]
     }
     
     init(name: String, location: String, phoneNumber: String, orderText: String) {
@@ -32,7 +32,7 @@ class Order {
     
     // Used to retrieve data from NSUserDefaults
     init?(dictionary: [String: AnyObject]) {
-        if let name = dictionary[nameKey] as? String, location = dictionary[locationKey] as? String, phoneNumber = dictionary[phoneNumberKey] as? String {
+        if let name = dictionary[nameKey] as? String, let location = dictionary[locationKey] as? String, let phoneNumber = dictionary[phoneNumberKey] as? String {
             self.name = name
             self.location = location
             self.phoneNumber = phoneNumber

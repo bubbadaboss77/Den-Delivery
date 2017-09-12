@@ -18,47 +18,69 @@ class FirebaseController {
     let faqsKey = "faqs"
     let openKey = "open"
     let passwordKey = "password"
+    let googleFormBaseUrlKey = "googleFormBaseUrl"
+    let googleFormFieldIdsKey = "googleFormFieldIds"
     
     // MARK: - Open Status
     
-    func openStatusChangedObserver(completion: (success: Bool) -> Void) {
-        firebaseRef.child(openKey).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+    func openStatusChangedObserver(_ completion: @escaping (_ success: Bool) -> Void) {
+        firebaseRef.child(openKey).observe(DataEventType.value, with: { (snapshot) in
             guard let open = snapshot.value as? Bool else { return }
             openForDelivery = open
-            completion(success: true)
+            completion(true)
         }) { (error) in
-            print("Error occurred while observing open status: \(error.localizedDescription)")
-            completion(success: false)
+            completion(false)
         }
     }
     
-    func setOpenStatus(value: Bool, completion: (error: NSError?) -> Void) {
-        firebaseRef.child(openKey).setValue(value) { (error, _) in
-            completion(error: error)
-        }
+    func setOpenStatus(_ value: Bool, completion: @escaping (_ error: NSError?) -> Void) {
+        firebaseRef.child(openKey).setValue(value)
     }
     
     // MARK: - Password
     
-    func fetchPassword(completion: (password: String?, error: NSError?) -> Void) {
-        firebaseRef.child(passwordKey).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+    func fetchPassword(_ completion: @escaping (_ password: String?, _ error: NSError?) -> Void) {
+        firebaseRef.child(passwordKey).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let password = snapshot.value as? String else { return }
-            completion(password: password, error: nil)
+            completion(password, nil)
         }) { (error) in
             print(error.localizedDescription)
-            completion(password: nil, error: error)
+            completion(nil, error as NSError)
         }
     }
     
     // MARK: - Custom Closed Message
     
-    func fetchClosedMessage(completion: (message: String?, success: Bool) -> Void) {
-        firebaseRef.child(closedMessageKey).observeEventType(.Value, withBlock: { (snapshot) in
+    func fetchClosedMessage(_ completion: @escaping (_ message: String?, _ success: Bool) -> Void) {
+        firebaseRef.child(closedMessageKey).observe(.value, with: { (snapshot) in
             guard let message = snapshot.value as? String else { return }
-            completion(message: message, success: true)
-        }) { (error) in
-            print(error.localizedDescription)
-            completion(message: nil, success: false)
-        }
+            completion(message, true)
+        })
+        
+        completion(nil, false)
+    }
+    
+    // MARK: - Google Form Parameters
+    
+    func fetchGoogleFormBaseUrl(_ completion: @escaping (_ urlString: String?, _ success: Bool) -> Void) {
+        firebaseRef.child(googleFormBaseUrlKey).observe(.value, with: { (snapshot) in
+            guard let baseUrlString = snapshot.value as? String else {
+                completion(nil, false)
+                return
+            }
+            completion(baseUrlString, true)
+        })
+    }
+    
+    func fetchGoogleFormFieldIds(_ completion: @escaping (_ fieldIds: [String]?, _ success: Bool) -> Void) {
+        firebaseRef.child(googleFormFieldIdsKey).observe(.value, with: { (snapshot) in
+            guard let items = snapshot.value as? NSArray else {
+                completion(nil, false)
+                return
+            }
+            // Convert to [String]
+            let completionItems = items.flatMap { $0 as? String }
+            completion(completionItems, true)
+        })
     }
 }
