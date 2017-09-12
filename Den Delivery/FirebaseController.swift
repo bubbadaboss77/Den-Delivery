@@ -18,6 +18,8 @@ class FirebaseController {
     let faqsKey = "faqs"
     let openKey = "open"
     let passwordKey = "password"
+    let googleFormBaseUrlKey = "googleFormBaseUrl"
+    let googleFormFieldIdsKey = "googleFormFieldIds"
     
     // MARK: - Open Status
     
@@ -56,5 +58,29 @@ class FirebaseController {
         })
         
         completion(nil, false)
+    }
+    
+    // MARK: - Google Form Parameters
+    
+    func fetchGoogleFormBaseUrl(_ completion: @escaping (_ urlString: String?, _ success: Bool) -> Void) {
+        firebaseRef.child(googleFormBaseUrlKey).observe(.value, with: { (snapshot) in
+            guard let baseUrlString = snapshot.value as? String else {
+                completion(nil, false)
+                return
+            }
+            completion(baseUrlString, true)
+        })
+    }
+    
+    func fetchGoogleFormFieldIds(_ completion: @escaping (_ fieldIds: [String]?, _ success: Bool) -> Void) {
+        firebaseRef.child(googleFormFieldIdsKey).observe(.value, with: { (snapshot) in
+            guard let items = snapshot.value as? NSArray else {
+                completion(nil, false)
+                return
+            }
+            // Convert to [String]
+            let completionItems = items.flatMap { $0 as? String }
+            completion(completionItems, true)
+        })
     }
 }

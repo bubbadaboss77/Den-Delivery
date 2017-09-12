@@ -16,15 +16,14 @@ class OrderController {
     
     // MARK: - Post Order
     
-    static let baseURL = URL(string: "https://docs.google.com/a/bates.edu/forms/d/1PyTKKFUNXpN170_GHW2eah-ub8yd32hHwq_ckVrJ_LM/formResponse?")
-    
-    static func postOrder(_ order: Order, completion: @escaping (NSString?, Error?) -> ()) {
-        guard let url = baseURL else {
+    static func postOrderWith(_ baseUrlString: String, fieldIds: [String], order: Order, completion: @escaping (NSString?, Error?) -> ()) {
+        let fullBaseUrlString = baseUrlString + String("?")
+        guard let url = URL(string: fullBaseUrlString) else {
             print("Optional url is nil")
             return
         }
         // Dictionary used in NetworkController method 'urlFromParameters'
-        let fieldIds = ["entry.30856469","entry.1459419707","entry.278265666","entry.1962294575"]
+        //let fieldIds = ["entry.30856469","entry.1459419707","entry.278265666","entry.1962294575"]
         let submissionParameters = [
             fieldIds[0]:order.name,
             fieldIds[1]:order.location,
@@ -34,7 +33,7 @@ class OrderController {
         // Make POST request to Google Form
         NetworkController.performRequestForURL(url, httpMethod: .Post, urlParameters: submissionParameters) { (data, error) in
             // Switch back to main thread
-            DispatchQueue.main.async(execute: { 
+            DispatchQueue.main.async(execute: {
                 if let data = data, let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     completion(responseString, nil)
                 } else {

@@ -26,7 +26,7 @@ class OrderViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         OrderController.sharedController.loadUserInfoFromPersistentStore()
         
         // Listen for open status changes
@@ -129,18 +129,30 @@ class OrderViewController: UIViewController {
                 return
             }
             ProgressHUD.show("Submitting order...")
-            OrderController.postOrder(order, completion: { (response, error) in
-                if error != nil {
-                    // Error
-                    print("Error occurred: \(error)")
+            FirebaseController.sharedController.fetchGoogleFormBaseUrl({ (baseUrlString, success) in
+                guard let urlString = baseUrlString, success else {
                     ProgressHUD.showError("Error submitting order \u{1F615}")
-                } else {
-                    // Success!
-                    print("Successfully posted to form!")
-                    OrderController.sharedController.saveUserInfoToPersistentStore(order)
-                    ProgressHUD.showSuccess("Order submitted successfully")
-                    self.formView.clearFields()
+                    return
                 }
+                FirebaseController.sharedController.fetchGoogleFormFieldIds({ (fieldIds, success) in
+                    guard let fieldIds = fieldIds else {
+                        ProgressHUD.showError("Error submitting order \u{1F615}")
+                        return
+                    }
+                    OrderController.postOrderWith(urlString, fieldIds: fieldIds, order: order, completion: { (response, error) in
+                        if error != nil {
+                            // Error
+                            print("Error occurred: \(String(describing: error))")
+                            ProgressHUD.showError("Error submitting order \u{1F615}")
+                        } else {
+                            // Success!
+                            print("Successfully posted to form!")
+                            OrderController.sharedController.saveUserInfoToPersistentStore(order)
+                            ProgressHUD.showSuccess("Order submitted successfully")
+                            self.formView.clearFields()
+                        }
+                    })
+                })
             })
         }
     }
